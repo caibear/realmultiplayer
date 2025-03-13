@@ -1,4 +1,4 @@
-name: Build
+name: Pages
 
 on:
   push:
@@ -20,7 +20,7 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  build:
+  pages:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
