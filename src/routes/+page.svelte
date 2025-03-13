@@ -35,7 +35,7 @@
         {#each games.filter(game => selectedCategories.length == 0 || selectedCategories.every(c => (game.categories || []).includes(c))) as game}
           {@const yourGame = game.name == "yourgame"}
           <div class="game" class:yourgame={yourGame}>
-              <a href={`https://${game.domain}`} target="_blank">
+              <a href={`/g/${game.name}`}>
                   {#if yourGame}
                       <div class="fakeimg"></div>
                       <h3 class="yourgame" style="text-align:center">Your game here!</h3>
@@ -105,11 +105,6 @@
 <style>
     html, body {
         margin: 0;
-    }
-
-    * {
-        font-family: sans-serif;
-        color: white;
     }
 
     a {
