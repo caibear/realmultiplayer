@@ -153,5 +153,6 @@
 
     h3.domain, h3.yourgame {
         margin: 0;
+        white-space: nowrap;
     }
 </style>
