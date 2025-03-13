@@ -4,6 +4,8 @@
     import categories from '$lib/categories.json';
 
     let selectedCategories = [];
+
+    let distinction = null;
 </script>
 
 <header>
@@ -46,7 +48,59 @@
         {/each}
     </main>
 </div>
-
+<h2>About</h2>
+<div style="display: flex; flex-direction: column; gap: 1rem;">
+    <p style="margin-top: 0.5rem; margin-bottom: 0.5rem;">
+        At Real Multipalyer Games, we focus on providing real, multiplayer experiences with no fake players.
+        The free browser games we feature are designed to connect you with actual people in live, authentic gameplay.
+        With live chat and a community-driven approach, we aim to create a space where you can enjoy genuine, social gaming without the usual gimmicks.
+    </p>
+    <div id="features">
+        {#each ["Browser-based", "Free to Play", "Multiplayer", "Live Chat", "Developer Friendly"] as d}
+            <div on:click={() => distinction = d}>{d}</div>
+        {/each}
+    </div>
+    {#if distinction == "Browser-based"}
+        Browser-based games offer key advantages like easy access-no downloads or installs required
+        and the ability to play on almost any device with internet access. They're often free,
+        cross-platform, and don't demand high-end hardware. With built-in social features and quick,
+        casual gameplay, they're perfect for players looking for a simple, accessible gaming experience
+        without the complexity of desktop or mobile games.
+    {:else if distinction == "Free to Play"}
+        Free-to-play games allow you to try them without any upfront cost, making them accessible to
+        a wider range of players.
+    {:else if distinction == "Multiplayer"}
+        Authentic multiplayer games are crucial because they create real, engaging interactions with
+        other players, making the experience more dynamic and unpredictable. Playing against actual
+        people, rather than just bots, brings a sense of challenge, competition, and cooperation that
+        enhances the fun. Authentic multiplayer also fosters a genuine sense of community, where you
+        can connect, communicate, and share experiences with others in real time, making the game more
+        enjoyable and rewarding.
+    {:else if distinction == "Live Chat"}
+        Live chat is key in authentic multiplayer games as it proves you're playing with real people,
+        not bots. It also enhances the experience by allowing real-time communication, making the game
+        more social, immersive, and connected.
+    {:else if distinction == "Developer Friendly"}
+        <ol>
+            <li>
+                No Commission on Ad Revenue - We don't take a cut of your ad earnings, so you keep it
+                all.
+            </li>
+            <li>
+                Direct Linking - You can link directly to your own site, giving you full control over
+                your presence.
+            </li>
+            <li>
+                Transparent Ranking - (Coming Soon) Our ranking system is clear and based on merit,
+                unlike competitors with opaque algorithms.
+            </li>
+            <li>
+                Only Real Multiplayer Games - We only feature real multiplayer games, unlike other
+                platforms that mix fake and real ones.
+            </li>
+        </ol>
+    {/if}
+</div>
 
 <style>
     html, body {
@@ -67,6 +121,20 @@
         flex-direction: row;
         justify-content: space-between;
         padding: 0.5rem;
+    }
+
+    #features {
+        white-space: nowrap;
+        width: min-content;
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+    }
+
+    #features > div {
+        background-color: #333333;
+        padding: 0.5rem;
+        border-radius: 1rem;
     }
 
     main {
