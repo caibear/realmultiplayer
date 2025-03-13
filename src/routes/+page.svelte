@@ -21,13 +21,17 @@
             {@const selected = selectedCategories.includes(category)}
             <!-- svelte-ignore a11y_click_events_have_key_events -->
             <!-- svelte-ignore a11y_no_static_element_interactions -->
-            <div class="category" class:selected={selected} on:click={() => {
+            <button class="category" class:selected={selected} on:click={() => {
                 if (selected) {
                     selectedCategories = selectedCategories.filter(c => c != category);
                 } else {
+                    if (["2D", "3D"].includes(category)) {
+                        // Mutually-exclusive.
+                        selectedCategories = selectedCategories.filter(c => !["2D", "3D"].includes(c));
+                    }
                     selectedCategories = [...selectedCategories, category];
                 }
-            }}>{category}</div>
+            }}>{category}</button>
         {/each}
     </div>
 
@@ -35,7 +39,7 @@
         {#each games.filter(game => selectedCategories.length == 0 || selectedCategories.every(c => (game.categories || []).includes(c))) as game}
           {@const yourGame = game.name == "yourgame"}
           <div class="game" class:yourgame={yourGame}>
-              <a href={`/g/${game.name}`}>
+              <a href={yourGame ? `https://${game.domain}` : `/g/${game.name}`}>
                   {#if yourGame}
                       <div class="fakeimg"></div>
                       <h3 class="yourgame" style="text-align:center">Your game here!</h3>
@@ -57,30 +61,34 @@
     </p>
     <div id="features">
         {#each ["Browser-based", "Free to Play", "Multiplayer", "Live Chat", "Developer Friendly"] as d}
-            <div on:click={() => distinction = d}>{d}</div>
+            <button class="distinction" class:selected={distinction == d} on:click={() => distinction = d}>{d}</button>
         {/each}
     </div>
-    {#if distinction == "Browser-based"}
+    <div class="distinction" class:selected={distinction == "Browser-based"}>
         Browser-based games offer key advantages like easy access-no downloads or installs required
         and the ability to play on almost any device with internet access. They're often free,
         cross-platform, and don't demand high-end hardware. With built-in social features and quick,
         casual gameplay, they're perfect for players looking for a simple, accessible gaming experience
         without the complexity of desktop or mobile games.
-    {:else if distinction == "Free to Play"}
+    </div>
+    <div class="distinction" class:selected={distinction == "Free to Play"}>
         Free-to-play games allow you to try them without any upfront cost, making them accessible to
         a wider range of players.
-    {:else if distinction == "Multiplayer"}
+    </div>
+    <div class="distinction" class:selected={distinction == "Multiplayer"}>
         Authentic multiplayer games are crucial because they create real, engaging interactions with
         other players, making the experience more dynamic and unpredictable. Playing against actual
         people, rather than just bots, brings a sense of challenge, competition, and cooperation that
         enhances the fun. Authentic multiplayer also fosters a genuine sense of community, where you
         can connect, communicate, and share experiences with others in real time, making the game more
         enjoyable and rewarding.
-    {:else if distinction == "Live Chat"}
+    </div>
+    <div class="distinction" class:selected={distinction == "Live Chat"}>
         Live chat is key in authentic multiplayer games as it proves you're playing with real people,
         not bots. It also enhances the experience by allowing real-time communication, making the game
         more social, immersive, and connected.
-    {:else if distinction == "Developer Friendly"}
+    </div>
+    <div class="distinction" class:selected={distinction == "Developer Friendly"}>
         <ol>
             <li>
                 No Commission on Ad Revenue - We don't take a cut of your ad earnings, so you keep it
@@ -99,7 +107,7 @@
                 platforms that mix fake and real ones.
             </li>
         </ol>
-    {/if}
+    </div>
 </div>
 
 <style>
@@ -126,12 +134,6 @@
         gap: 0.5rem;
     }
 
-    #features > div {
-        background-color: #333333;
-        padding: 0.5rem;
-        border-radius: 1rem;
-    }
-
     main {
         display: flex;
         gap: 0.5rem;
@@ -141,14 +143,14 @@
     #sidebar {
         margin-right: 0.5rem;
         border-radius: 1rem;
-        width: 22rem;
-        height: 32rem;
+        width: 12rem;
+        height: 24rem;
         display: flex;
         flex-direction: column;
         background-color: #28283c;
-        z-index: 5;
         padding: 0.5rem;
         gap: 0.5rem;
+        flex-shrink: 0;
     }
 
     h1 {
@@ -181,19 +183,21 @@
         transition: border-color 0.25s;
     }
 
-    div.category {
+    button.category, button.distinction {
         padding: 0.5rem;
         background-color: black;
         border-radius: 0.5rem;
         border: 1px solid transparent;
+        cursor: pointer;
     }
 
-    div.category:hover {
+    button.category:hover, button.distinction:hover {
         border-color: white;
     }
 
-    div.category.selected {
+    button.category.selected, button.distinction.selected {
         background-color: gray;
+        cursor: initial;
     }
 
     div.yourgame {
@@ -217,5 +221,13 @@
     h3.domain, h3.yourgame {
         margin: 0;
         white-space: nowrap;
+    }
+
+    div.distinction {
+        display: none;
+    }
+
+    div.distinction.selected {
+        display: initial;
     }
 </style>
