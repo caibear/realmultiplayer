@@ -1,10 +1,11 @@
 [
-    { "name": "ballguys", "domain": "ballguys.xyz" },
-    { "name": "kiomet", "domain": "kiomet.com" },
-    { "name": "mazean", "domain": "mazean.com" },
-    { "name": "mk48", "domain": "mk48.io" },
-    { "name": "netquel", "domain": "netquel.com" },
-    { "name": "tankgank", "domain": "tankgank.com" },
-    { "name": "turnfight", "domain": "turnfight.com" },
+    { "name": "ballguys", "domain": "ballguys.xyz", "categories": ["3D", "Action"] },
+    { "name": "kiomet", "domain": "kiomet.com", "categories": ["2D", "Strategy"] },
+    { "name": "krakax", "domain": "krakax.com", "categories": ["2D", "Shooting"]},
+    { "name": "mazean", "domain": "mazean.com", "categories": ["3D", "Shooting"] },
+    { "name": "mk48", "domain": "mk48.io", "categories": ["2D", "Action"] },
+    { "name": "netquel", "domain": "netquel.com", "categories": ["2D", "Action"] },
+    { "name": "tankgank", "domain": "tankgank.com", "categories": ["2D", "Action", "Strategy"] },
+    { "name": "turnfight", "domain": "turnfight.com", "categories": ["3D", "Action"] },
     { "name": "yourgame", "domain": "github.com/caibear/realmultiplayer" }
 ]
