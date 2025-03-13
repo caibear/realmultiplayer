@@ -55,7 +55,7 @@
 <h2>About</h2>
 <div style="display: flex; flex-direction: column; gap: 1rem;">
     <p style="margin-top: 0.5rem; margin-bottom: 0.5rem;">
-        At Real Multipalyer Games, we focus on providing real, multiplayer experiences with no fake players.
+        At Real Multiplayer Games, we focus on providing real, multiplayer experiences with no fake players.
         The free browser games we feature are designed to connect you with actual people in live, authentic gameplay.
         With live chat and a community-driven approach, we aim to create a space where you can enjoy genuine, social gaming without the usual gimmicks.
     </p>
