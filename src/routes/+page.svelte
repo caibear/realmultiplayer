@@ -94,7 +94,11 @@
     </p>
     <div id="features">
         {#each ["Browser-based", "Free to Play", "Multiplayer", "Live Chat", "Developer Friendly"] as d}
-            <button class="distinction" class:selected={distinction == d} on:click={() => distinction = d}>{d}</button>
+            <button
+                class="distinction"
+                class:selected={distinction == d}
+                on:click={() => distinction == d ? distinction = null : distinction = d}
+            >{d}</button>
         {/each}
     </div>
     <div class="distinction" class:selected={distinction == "Browser-based"}>
