@@ -1,11 +1,39 @@
 <script>
-    import { Github } from '@lucide/svelte';
+    import { Github, Hash } from '@lucide/svelte';
     import games from '$lib/games.json';
     import categories from '$lib/categories.json';
 
     let selectedCategories = [];
 
     let distinction = null;
+
+    let seed = Date.now() / (24 * 60 * 60 * 1000);
+
+    if (false) {
+        setInterval(() => {
+            seed += 1;
+        }, 1000);
+    }
+
+    function sort(seed, games) {
+        function hashString(string) {
+            let hash = 0;
+            for (let i = 0; i < string.length; i++) {
+                const char = string.charCodeAt(i);
+                hash = ((hash << 5) - hash) + char;
+                hash = hash & hash;
+            }
+            return hash;
+        }
+
+        function hashGame(game) {
+            if (game.name == "yourgame") {
+                return Infinity;
+            }
+            return hashString(`${seed}${game.name}${seed}`);
+        }
+        return games.sort((a, b) => hashGame(a) - hashGame(b));
+    }
 </script>
 
 <header>
@@ -41,7 +69,7 @@
     </div>
 
     <main>
-        {#each games.filter(game => selectedCategories.length == 0 || selectedCategories.every(c => (game.categories || []).includes(c))) as game}
+        {#each sort(seed, games.filter(game => selectedCategories.length == 0 || selectedCategories.every(c => (game.categories || []).includes(c)))) as game}
           {@const yourGame = game.name == "yourgame"}
           <div class="game" class:yourgame={yourGame}>
               <a href={yourGame ? `https://${game.domain}` : `/g/${game.name}`}>
@@ -104,7 +132,7 @@
                 your presence.
             </li>
             <li>
-                Transparent Ranking - (Coming Soon) Our ranking system is clear and based on merit,
+                Fair Ranking - Our ranking system randomizes the order of games each UTC day,
                 unlike competitors with opaque algorithms.
             </li>
             <li>
