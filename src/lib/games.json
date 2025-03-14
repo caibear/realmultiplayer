@@ -7,5 +7,5 @@
     { "name": "netquel", "domain": "netquel.com", "categories": ["2D", "Action"] },
     { "name": "tankgank", "domain": "tankgank.com", "categories": ["2D", "Strategy"] },
     { "name": "turnfight", "domain": "turnfight.com", "categories": ["3D", "Action"] },
-    { "name": "yourgame", "domain": "github.com/caibear/realmultiplayer" }
+    { "name": "yourgame", "domain": "github.com/caibear/realmultiplayer", "categories": ["2D", "3D", "Action", "Shooting", "Strategy"] }
 ]
