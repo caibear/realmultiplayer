@@ -7,7 +7,8 @@
 
     let distinction = null;
 
-    let seed = Date.now() / (24 * 60 * 60 * 1000);
+    // let seed = Date.now() / (24 * 60 * 60 * 1000);
+    let seed = 1; // TODO breaks SSR.
 
     if (false) {
         setInterval(() => {
