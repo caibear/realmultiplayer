@@ -12,8 +12,8 @@
     title={game.name}
 />
 <footer>
-    <h3>{game.domain}</h3>
-    <a id="back" href="/">x</a>
+    <a target="_blank" class="title" href={"https://" + game.domain}>{game.domain}</a>
+    <a href="/" class="close"></a>
 </footer>
 
 <style>
@@ -46,19 +46,42 @@
         bottom: 0;
         height: 3rem;
         max-height: 3rem;
-        background-color: black;
+        background-color: #13141e;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
     }
 
-    h3 {
+    .title {
         margin: 0;
+        padding: 14px;
+        font-size: 20px;
+        text-decoration: none;
     }
 
-    #back {
-        padding: 0.5rem;
-        border-radius: 0.5rem;
-        background-color: gray;
+    .close {
+        position: absolute;
+        right: 8px;
+        top: 8px;
+        width: 32px;
+        height: 32px;
+        opacity: 0.3;
+    }
+    .close:hover {
+        opacity: 1;
+    }
+    .close:before, .close:after {
+        position: absolute;
+        left: 15px;
+        content: ' ';
+        height: 33px;
+        width: 2px;
+        background-color: #fff;
+    }
+    .close:before {
+        transform: rotate(45deg);
+    }
+    .close:after {
+        transform: rotate(-45deg);
     }
 </style>
