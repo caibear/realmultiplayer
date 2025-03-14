@@ -5,6 +5,10 @@
   import About from '$lib/About.svelte';
 </script>
 
+<svelte:head>
+    <title>Real Multiplayer Games | Play Now!</title> 
+</svelte:head>
+
 <Games selectedCategories={[]}/>
 
 <About/>

@@ -12,9 +12,11 @@
     afterNavigate(() => {
         selectedCategories = page.params.categories.split('-');
     });
-
-    let distinction = null;
 </script>
+
+<svelte:head>
+    <title>Play {selectedCategories.join(", ")} games on Real Multiplayer Games</title> 
+</svelte:head>
 
 <Games selectedCategories={selectedCategories}/>
 

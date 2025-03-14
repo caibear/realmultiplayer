@@ -5,6 +5,9 @@
     const game = games.find(g => g.name == name);
 </script>
 
+<svelte:head>
+    <title>{name} | Play on Real Multiplayer Games</title> 
+</svelte:head>
 <iframe
     src={`https://${game.domain}`}
     allowfullscreen
