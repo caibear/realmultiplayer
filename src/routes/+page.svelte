@@ -17,21 +17,26 @@
 
 <div style="display: flex; flex-direction: row;">
     <div id="sidebar">
-        {#each categories as category}
-            {@const selected = selectedCategories.includes(category)}
-            <!-- svelte-ignore a11y_click_events_have_key_events -->
-            <!-- svelte-ignore a11y_no_static_element_interactions -->
-            <button class="category" class:selected={selected} on:click={() => {
-                if (selected) {
-                    selectedCategories = selectedCategories.filter(c => c != category);
-                } else {
-                    if (["2D", "3D"].includes(category)) {
-                        // Mutually-exclusive.
-                        selectedCategories = selectedCategories.filter(c => !["2D", "3D"].includes(c));
+        {#each categories as subcategories, i}
+            {#if i != 0}
+                <hr>
+            {/if}
+            {#each subcategories as category}
+                {@const selected = selectedCategories.includes(category)}
+                <!-- svelte-ignore a11y_click_events_have_key_events -->
+                <!-- svelte-ignore a11y_no_static_element_interactions -->
+                <button class="category" class:selected={selected} on:click={() => {
+                    if (selected) {
+                        selectedCategories = selectedCategories.filter(c => c != category);
+                    } else {
+                        if (subcategories.includes(category)) {
+                            selectedCategories = selectedCategories.filter(c => !subcategories.includes(c));
+                        }
+                        selectedCategories = [...selectedCategories, category];
                     }
-                    selectedCategories = [...selectedCategories, category];
-                }
-            }}>{category}</button>
+                }}>{category}</button>
+            {/each}
+
         {/each}
     </div>
 
@@ -117,6 +122,15 @@
 
     a {
         text-decoration: none;
+    }
+
+    hr {
+        border: 0;
+        clear:both;
+        display:block;
+        width: 96%;
+        background-color:#56567c;
+        height: 1px;
     }
 
     header {

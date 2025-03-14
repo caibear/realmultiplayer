@@ -1,7 +1,4 @@
 [
-    "2D",
-    "3D",
-    "Action",
-    "Strategy",
-    "Shooting"
+    ["2D", "3D"],
+    ["Action", "Strategy", "Shooting"]
 ]
