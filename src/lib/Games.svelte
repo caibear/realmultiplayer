@@ -43,6 +43,9 @@
             }
             newCategories = [...newCategories, category];
         }
+        if (newCategories.length == 0) {
+            return "/";
+        }
         let priority = a => {
             return categories.findIndex(c => c.includes(a));
         };

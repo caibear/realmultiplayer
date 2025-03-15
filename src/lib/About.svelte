@@ -46,16 +46,17 @@
         <div class="distinction" class:selected={distinction == "Developer Friendly"}>
             <ol>
                 <li>
-                    No Commission on Ad Revenue - We don't take a cut of your ad earnings, so you keep it
-                    all.
+                    No Commission on Ad Revenue - Include your own ads, such as via
+                    <a href="https://adinplay.com/" target="_blank" rel="nofollow">AdinPlay</a>, and
+                    keep 100% of your earnings.
                 </li>
                 <li>
-                    Direct Linking - You can link directly to your own site, giving you full control over
-                    your presence.
+                    Direct Linking - We link directly to your game's website under the cooresponding
+                    iframe.
                 </li>
                 <li>
                     Fair Ranking - Our ranking system randomizes the order of games each UTC day,
-                    unlike competitors with opaque algorithms.
+                    unlike other platforms with opaque algorithms.
                 </li>
                 <li>
                     Only Real Multiplayer Games - We only feature real multiplayer games, unlike other
@@ -64,6 +65,8 @@
             </ol>
         </div>
     </div>
+    <h2>Privacy</h2>
+    <p>This is a static site, without cookies, tracking, or data collection.</p>
 </div>
 
 <style>

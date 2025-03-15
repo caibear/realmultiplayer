@@ -15,7 +15,11 @@
     title={game.name}
 />
 <footer>
-    <a target="_blank" class="title" href={"https://" + game.domain}>{game.domain}</a>
+    <a
+        target="_blank"
+        class="title"
+        href={"https://" + game.domain}
+    >{game.domain}</a>
     <a href="/" class="close"></a>
 </footer>
 
