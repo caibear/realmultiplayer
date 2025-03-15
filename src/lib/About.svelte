@@ -46,9 +46,8 @@
         <div class="distinction" class:selected={distinction == "Developer Friendly"}>
             <ol>
                 <li>
-                    No Commission on Ad Revenue - Include your own ads, such as via
-                    <a href="https://adinplay.com/" target="_blank" rel="nofollow">AdinPlay</a>, and
-                    keep 100% of your earnings.
+                    No Commission on Ad Revenue - Include your own ads and keep 100% of your
+                    earnings.
                 </li>
                 <li>
                     Direct Linking - We link directly to your game's website under the corresponding
