@@ -51,7 +51,7 @@
                     keep 100% of your earnings.
                 </li>
                 <li>
-                    Direct Linking - We link directly to your game's website under the cooresponding
+                    Direct Linking - We link directly to your game's website under the corresponding
                     iframe.
                 </li>
                 <li>
