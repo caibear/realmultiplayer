@@ -15,7 +15,8 @@
 </script>
 
 <svelte:head>
-    <title>Play {selectedCategories.join(", ")} games on Real Multiplayer Games</title> 
+    <title>Play {selectedCategories.join(" ")} games on Real Multiplayer Games</title> 
+    <meta name="description" content="Play free {selectedCategories.join(" ")} games in your browser">
 </svelte:head>
 
 <Games selectedCategories={selectedCategories}/>

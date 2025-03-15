@@ -6,7 +6,8 @@
 </script>
 
 <svelte:head>
-    <title>Real Multiplayer Games | Play Now!</title> 
+    <title>Real Multiplayer Games | Play Now!</title>
+    <meta name="description" content="Play free real multiplayer games in your browser">
 </svelte:head>
 
 <Games selectedCategories={[]}/>
