@@ -6,7 +6,10 @@
 </script>
 
 <svelte:head>
-    <title>{name} | Play on Real Multiplayer Games</title> 
+    <title>{name} | Play on Real Multiplayer Games</title>
+    {#if game.description}
+        <meta name="description" content={game.description}/>
+    {/if}
 </svelte:head>
 <iframe
     src={`https://${game.domain}`}
@@ -15,11 +18,16 @@
     title={game.name}
 />
 <footer>
-    <a
-        target="_blank"
-        class="title"
-        href={"https://" + game.domain}
-    >{game.domain}</a>
+    <span class="title_developer">
+        <a
+            target="_blank"
+            class="title"
+            href={"https://" + game.domain}
+        >{game.domain}</a>
+        {#if game.developer}
+            <span class="developer">{`Developed by ${game.developer}`}</span>
+        {/if}
+    </span>
     <a href="/" class="close"></a>
 </footer>
 
@@ -58,11 +66,21 @@
         justify-content: space-between;
     }
 
-    .title {
+    .title_developer {
         margin: 0;
-        padding: 14px;
-        font-size: 20px;
+        padding: 0.7rem;
+        user-select: none;
+    }
+
+    .title {
         text-decoration: none;
+        font-size: 1.5rem;
+    }
+
+    .developer {
+        color: #ffffff88;
+        font-size: 0.75rem;
+        margin-left: 0.75rem;
     }
 
     .close {
