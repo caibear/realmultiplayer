@@ -5,7 +5,7 @@
 
     export let selectedCategories = [];
 
-    let seed = Date.now() / (24 * 60 * 60 * 1000);
+    let seed = 1; // Date.now() / (24 * 60 * 60 * 1000);
 
     if (false) {
         setInterval(() => {
