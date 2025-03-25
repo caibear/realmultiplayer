@@ -87,18 +87,20 @@
 
     <main class:mounted>
         {#each sort(seed, games.filter(game => selectedCategories.length == 0 || selectedCategories.every(c => (game.categories || []).includes(c)))) as game}
-        {@const yourGame = game.name == "yourgame"}
-        <div class="game" class:yourgame={yourGame}>
-            <a href={yourGame ? `https://${game.domain}` : `/g/${game.name}`}>
-                {#if yourGame}
-                    <div class="fakeimg"></div>
-                    <h3 class="yourgame" style="text-align:center">Your game here!</h3>
-                {:else}
-                    <img src={`/${game.name}_teaser.webp`} alt={game.name}/>
-                    <h3 class="domain">{game.domain}</h3>
-                {/if}
-            </a>
-        </div>
+            {#key game.name}    
+                {@const yourGame = game.name == "yourgame"}
+                <div class="game" class:yourgame={yourGame}>
+                    <a href={yourGame ? `https://${game.domain}` : `/g/${game.name}`}>
+                        {#if yourGame}
+                            <div class="fakeimg"></div>
+                            <h3 class="yourgame" style="text-align:center">Your game here!</h3>
+                        {:else}
+                            <img src={`/${game.name}_teaser.webp`} alt={game.name}/>
+                            <h3 class="domain">{game.domain}</h3>
+                        {/if}
+                    </a>
+                </div>
+            {/key}
         {/each}
     </main>
 </div>
@@ -118,11 +120,11 @@
         display: flex;
         gap: 0.5rem;
         flex-wrap: wrap;
-        visibility: hidden;
+        filter: contrast(0) brightness(0.3);
     }
 
     main.mounted {
-        visibility: visible;
+        filter: none;
     }
 
     #sidebar {
