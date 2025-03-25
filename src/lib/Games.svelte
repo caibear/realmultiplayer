@@ -85,23 +85,21 @@
         {/each}
     </div>
 
-    <main>
-        {#if mounted}
-            {#each sort(seed, games.filter(game => selectedCategories.length == 0 || selectedCategories.every(c => (game.categories || []).includes(c)))) as game}
-            {@const yourGame = game.name == "yourgame"}
-            <div class="game" class:yourgame={yourGame}>
-                <a href={yourGame ? `https://${game.domain}` : `/g/${game.name}`}>
-                    {#if yourGame}
-                        <div class="fakeimg"></div>
-                        <h3 class="yourgame" style="text-align:center">Your game here!</h3>
-                    {:else}
-                        <img src={`/${game.name}_teaser.webp`} alt={game.name}/>
-                        <h3 class="domain">{game.domain}</h3>
-                    {/if}
-                </a>
-            </div>
-            {/each}
-        {/if}
+    <main class:mounted>
+        {#each sort(seed, games.filter(game => selectedCategories.length == 0 || selectedCategories.every(c => (game.categories || []).includes(c)))) as game}
+        {@const yourGame = game.name == "yourgame"}
+        <div class="game" class:yourgame={yourGame}>
+            <a href={yourGame ? `https://${game.domain}` : `/g/${game.name}`}>
+                {#if yourGame}
+                    <div class="fakeimg"></div>
+                    <h3 class="yourgame" style="text-align:center">Your game here!</h3>
+                {:else}
+                    <img src={`/${game.name}_teaser.webp`} alt={game.name}/>
+                    <h3 class="domain">{game.domain}</h3>
+                {/if}
+            </a>
+        </div>
+        {/each}
     </main>
 </div>
 
@@ -120,6 +118,11 @@
         display: flex;
         gap: 0.5rem;
         flex-wrap: wrap;
+        visibility: hidden;
+    }
+
+    main.mounted {
+        visibility: visible;
     }
 
     #sidebar {
