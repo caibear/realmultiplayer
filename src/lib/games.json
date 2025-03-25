@@ -78,6 +78,26 @@
       "developer": "Softbear"
     },
     {
+      "name": "ships3d",
+      "domain": "yp3d.com/ships3d/",
+      "description": "Play as a sailor on servers up to 90 players. Traverse deep seas, battling to attain items and trade them. Battle goblins, trade loot across long voyages.",
+      "categories": [
+        "3D",
+        "Action"
+      ],
+      "developer": "Yp3d"
+    },
+    {
+      "name": "tanks3d",
+      "domain": "yp3d.com/tanks3d/",
+      "description": "Play as a tank, fighting up to 1,000 players concurrently on one massive server.",
+      "categories": [
+        "3D",
+        "Action"
+      ],
+      "developer": "Yp3d"
+    },
+    {
       "name": "yourgame",
       "domain": "github.com/caibear/realmultiplayer",
       "categories": [
