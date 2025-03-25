@@ -1,7 +1,8 @@
 <script>
     import games from '$lib/games.json';
     import categories from '$lib/categories.json';
-  import { goto } from '$app/navigation';
+    import { goto } from '$app/navigation';
+  import { onMount } from 'svelte';
 
     export let selectedCategories = [];
 
@@ -52,6 +53,12 @@
         newCategories.sort((a, b) => priority(a) - priority(b));
         return `/c/${newCategories.join('-')}`;
     }
+
+    let mounted = false;
+
+    onMount(() => {
+        mounted = true;
+    })
 </script>
 
 <div style="margin: 0.5rem; display: flex; flex-direction: row;">
@@ -79,20 +86,22 @@
     </div>
 
     <main>
-        {#each sort(seed, games.filter(game => selectedCategories.length == 0 || selectedCategories.every(c => (game.categories || []).includes(c)))) as game}
-          {@const yourGame = game.name == "yourgame"}
-          <div class="game" class:yourgame={yourGame}>
-              <a href={yourGame ? `https://${game.domain}` : `/g/${game.name}`}>
-                  {#if yourGame}
-                      <div class="fakeimg"></div>
-                      <h3 class="yourgame" style="text-align:center">Your game here!</h3>
-                  {:else}
-                      <img src={`/${game.name}_teaser.webp`} alt={game.name}/>
-                      <h3 class="domain">{game.domain}</h3>
-                  {/if}
-              </a>
-          </div>
-        {/each}
+        {#if mounted}
+            {#each sort(seed, games.filter(game => selectedCategories.length == 0 || selectedCategories.every(c => (game.categories || []).includes(c)))) as game}
+            {@const yourGame = game.name == "yourgame"}
+            <div class="game" class:yourgame={yourGame}>
+                <a href={yourGame ? `https://${game.domain}` : `/g/${game.name}`}>
+                    {#if yourGame}
+                        <div class="fakeimg"></div>
+                        <h3 class="yourgame" style="text-align:center">Your game here!</h3>
+                    {:else}
+                        <img src={`/${game.name}_teaser.webp`} alt={game.name}/>
+                        <h3 class="domain">{game.domain}</h3>
+                    {/if}
+                </a>
+            </div>
+            {/each}
+        {/if}
     </main>
 </div>
 
