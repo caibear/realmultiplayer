@@ -72,9 +72,12 @@
     #features {
         white-space: nowrap;
         width: min-content;
+        max-width: 100%;
         display: flex;
         flex-direction: row;
         gap: 0.5rem;
+        overflow-x: auto;
+        overflow-y: hidden;
     }
 
     div.distinction {

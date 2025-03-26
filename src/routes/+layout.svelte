@@ -21,13 +21,14 @@
     h1 {
         margin: 0;
         letter-spacing: .2rem;
+        font-size: calc(7px + 4vmin);
     }
 
     header {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        padding: 0.5rem;
+        padding: 0.5rem 0.5rem 0 0.5rem;
     }
 
     a {

@@ -2,7 +2,7 @@
     import games from '$lib/games.json';
     import categories from '$lib/categories.json';
     import { goto } from '$app/navigation';
-  import { onMount } from 'svelte';
+    import { onMount } from 'svelte';
 
     export let selectedCategories = [];
 
@@ -61,27 +61,29 @@
     })
 </script>
 
-<div style="margin: 0.5rem; display: flex; flex-direction: row;">
+<div class="games">
     <div id="sidebar">
         {#each categories as subcategories, i}
             {#if i != 0}
                 <hr>
             {/if}
-            {#each subcategories as category}
-                {@const selected = selectedCategories.includes(category)}
-                <a
-                    class="category"
-                    class:selected={selected}
-                    href={selectedCategoriesHref(
-                        categories,
-                        subcategories,
-                        selectedCategories,
-                        category,
-                        selected
-                    )}
-                    data-sveltekit-replacestate
-                >{category}</a>
-            {/each}
+            <div class="subcategory">
+                {#each subcategories as category}
+                    {@const selected = selectedCategories.includes(category)}
+                    <a
+                        class="category"
+                        class:selected={selected}
+                        href={selectedCategoriesHref(
+                            categories,
+                            subcategories,
+                            selectedCategories,
+                            category,
+                            selected
+                        )}
+                        data-sveltekit-replacestate
+                    >{category}</a>
+                {/each}
+            </div>
         {/each}
     </div>
 
@@ -92,11 +94,12 @@
                 <div class="game" class:yourgame={yourGame}>
                     <a href={yourGame ? `https://${game.domain}` : `/g/${game.name}`}>
                         {#if yourGame}
-                            <div class="fakeimg"></div>
-                            <h3 class="yourgame" style="text-align:center">Your game here!</h3>
+                            <div class="fakeimg">
+                                <h3 class="yourgame" style="text-align:center">Your game here!</h3>
+                            </div>
                         {:else}
                             <img src={`/${game.name}_teaser.webp`} alt={game.name}/>
-                            <h3 class="domain">{game.domain}</h3>
+                            <h3 class="domain">{game.name.charAt(0).toUpperCase() + game.name.slice(1)} ({game.domain})</h3>
                         {/if}
                     </a>
                 </div>
@@ -106,6 +109,11 @@
 </div>
 
 <style>
+    .games{
+        margin: 0 0.5rem;
+        display: flex;
+    }
+
     hr {
         border: 0;
         clear:both;
@@ -115,11 +123,8 @@
         height: 1px;
     }
 
-
     main {
-        display: flex;
         gap: 0.5rem;
-        flex-wrap: wrap;
         filter: contrast(0) brightness(0.3);
     }
 
@@ -127,24 +132,13 @@
         filter: none;
     }
 
-    #sidebar {
-        margin-right: 0.5rem;
-        border-radius: 1rem;
-        width: 12rem;
-        height: 24rem;
+    #sidebar{
         display: flex;
-        flex-direction: column;
-        background-color: #28283c;
-        padding: 0.5rem;
-        gap: 0.5rem;
         flex-shrink: 0;
-    }
-
-    h3.yourgame {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
+        background-color: #28283c;
+        border-radius: 1rem;
+        padding: 0.5rem;
+        border: none;
     }
 
     h3.domain {
@@ -157,12 +151,15 @@
 
     div.game {
         position: relative;
-        width: 18rem;
-        height: 18rem;
         border-radius: 1rem;
         overflow: hidden;
         border: 2px solid transparent;
         transition: border-color 0.25s;
+    }
+
+    .subcategory {
+        display: flex;
+        flex-shrink: 0;
     }
 
     a.category {
@@ -195,17 +192,115 @@
     }
 
     img, div.fakeimg {
-        position: absolute;
         width: 100%;
         height: 100%;
     }
 
-    h3.domain, h3.yourgame {
+    h3.domain {
         margin: 0;
         white-space: nowrap;
     }
 
     a {
         text-decoration: none;
+    }
+
+    /* 52.5rem = width until less than two columns in main */
+
+    @media screen and (min-width: 52.5rem) {
+        .games{
+            flex-direction: row;
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #sidebar {
+            margin-right: 0.5rem;
+            width: 12rem;
+            min-height: 24rem;
+            height: min-content;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .subcategory {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        div.game {
+            width: 18rem;
+            height: 18rem;
+        }
+
+        img, .fakeimg {
+            position: absolute;
+        }
+
+        h3.yourgame {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
+            white-space: nowrap;
+        }
+    }
+
+    @media screen and (max-width: 52.5rem) {
+        .games {
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        #sidebar {
+            flex-direction: column;
+            user-select: none;
+            gap: .25rem;
+        }
+
+        #sidebar button {
+            cursor: pointer;
+        }
+
+        .subcategory {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            gap: 0.25rem;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+
+        div.game {
+            width: 100%;
+            height: 100%;
+        }
+
+        img, .fakeimg {
+            position: relative;
+        }
+
+        .fakeimg {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            aspect-ratio: 1/1;
+        }
+
+        h3.yourgame {
+            width: 100%;
+            padding: .5rem;
+        }
     }
 </style>

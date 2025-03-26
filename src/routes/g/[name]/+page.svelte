@@ -16,7 +16,7 @@
     allowfullscreen
     sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts" 
     title={game.name}
-/>
+></iframe>
 <footer>
     <span class="title_developer">
         <a
@@ -28,14 +28,10 @@
             <span class="developer">{`Developed by ${game.developer}`}</span>
         {/if}
     </span>
-    <a href="/" class="close"></a>
+    <a href="/" class="close" aria-label="Close"></a>
 </footer>
 
 <style>
-    html, body {
-        overflow: hidden;
-    }
-
     * {
         color: white;
     }
