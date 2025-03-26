@@ -65,7 +65,11 @@
         </div>
     </div>
     <h2>Privacy</h2>
-    <p>This is a static site, without cookies, tracking, or data collection.</p>
+    <p>This is a static site, without first-party cookies, tracking, or data collection. The per-game pages
+        (accessible by clicking a game thumbnail) embed content from third-parties, over which we have
+        no control and for which we assume no responsibility. If you interact with this content, you do so
+        purely at your own risk and subject to third party terms of service and privacy policies. Please
+        <a href="mailto:contact@softbear.com">contact us</a> if you have any concerns.</p>
 </div>
 
 <style>
