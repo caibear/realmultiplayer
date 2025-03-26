@@ -98,8 +98,8 @@
                                 <h3 class="yourgame" style="text-align:center">Your game here!</h3>
                             </div>
                         {:else}
-                            <img src={`/${game.name}_teaser.webp`} alt={game.name}/>
-                            <h3 class="domain">{game.name.charAt(0).toUpperCase() + game.name.slice(1)} ({game.domain})</h3>
+                            <img src={`/${game.teaser}`} alt={game.name}/>
+                            <h3 class="domain">{game.name}</h3>
                         {/if}
                     </a>
                 </div>

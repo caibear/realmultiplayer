@@ -11,101 +11,111 @@
     ]
   },
   {
-    "name": "ballguys",
+    "name": "Ballguys",
     "domain": "ballguys.xyz",
     "categories": [
       "3D",
       "Action"
-    ]
+    ],
+    "teaser": "ballguys_teaser.webp"
   },
   {
-    "name": "kiomet",
+    "name": "Kiomet",
     "domain": "kiomet.com",
     "description": "Command your forces wisely to survive this multiplayer real-time strategy game. Create supply lines and upgrade bases to gain an advantage.  Prepare for intense battles!",
     "categories": [
       "2D",
       "Strategy"
     ],
-    "developer": "Softbear"
+    "developer": "Softbear",
+    "teaser": "kiomet_teaser.webp"
   },
   {
-    "name": "krakax",
+    "name": "Krakax",
     "domain": "krakax.com",
     "description": "Experience a surrealistic combination of ancient archery and gravitational mechanics.",
     "categories": [
       "2D",
       "Shooting"
     ],
-    "developer": "Softbear"
+    "developer": "Softbear",
+    "teaser": "krakax_teaser.webp"
   },
   {
-    "name": "mazean",
+    "name": "Mazean",
     "domain": "mazean.com",
     "description": "Battle with lasers and force fields in this multiplayer FPS game. Collect crowns to gain an advantage!",
     "categories": [
       "3D",
       "Shooting"
     ],
-    "developer": "Softbear"
+    "developer": "Softbear",
+    "teaser": "mazean_teaser.webp"
   },
   {
-    "name": "mk48",
+    "name": "Mk48",
     "domain": "mk48.io",
     "description": "Sail your way to victory in this multiplayer naval combat game. But watch out for incoming torpedoes!",
     "categories": [
       "2D",
       "Action"
     ],
-    "developer": "Softbear"
+    "developer": "Softbear",
+    "teaser": "mk48_teaser.webp"
   },
   {
-    "name": "netquel",
+    "name": "Netquel",
     "domain": "netquel.com",
     "description": "Mine asteroids and build a network of robotic spacecraft in this multiplayer space war game. Stay alert for rival players!",
     "categories": [
       "2D",
       "Action"
     ],
-    "developer": "Softbear"
+    "developer": "Softbear",
+    "teaser": "netquel_teaser.webp"
   },
   {
-    "name": "tankgank",
+    "name": "Tankgank",
     "domain": "tankgank.com",
     "description": "Prowl the battle field in this multiplayer tank combat game. Surround adversaries and win territory! Develop your territory to gain an advantage.",
     "categories": [
       "2D",
       "Strategy"
     ],
-    "developer": "Softbear"
+    "developer": "Softbear",
+    "teaser": "tankgank_teaser.webp"
   },
   {
-    "name": "turnfight",
+    "name": "Turnfight",
     "domain": "turnfight.com",
     "description": "Pilot your aircraft through the clouds and over the ocean to engage enemy aircraft in a fierce dogfight.",
     "categories": [
       "3D",
       "Action"
     ],
-    "developer": "Softbear"
+    "developer": "Softbear",
+    "teaser": "turnfight_teaser.webp"
   },
   {
-    "name": "ships3d",
+    "name": "Ships 3D",
     "domain": "yp3d.com/ships3d/",
     "description": "Play as a sailor on servers up to 90 players. Traverse deep seas, battling to attain items and trade them. Battle goblins, trade loot across long voyages.",
     "categories": [
       "3D",
       "Action"
     ],
-    "developer": "Yp3d"
+    "developer": "Yp3d",
+    "teaser": "ships3d_teaser.webp"
   },
   {
-    "name": "tanks3d",
+    "name": "Tanks 3D",
     "domain": "yp3d.com/tanks3d/",
     "description": "Play as a tank, fighting up to 1,000 players concurrently on one massive server.",
     "categories": [
       "3D",
       "Action"
     ],
-    "developer": "Yp3d"
+    "developer": "Yp3d",
+    "teaser": "tanks3d_teaser.webp"
   }
 ]

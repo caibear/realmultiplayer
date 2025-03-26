@@ -21,7 +21,7 @@
     h1 {
         margin: 0;
         letter-spacing: .2rem;
-        font-size: calc(7px + 4vmin);
+        font-size: calc(10px + 3vmin);
     }
 
     header {
