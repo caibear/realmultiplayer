@@ -6,7 +6,7 @@
 
     export let selectedCategories = [];
 
-    let seed = Math.floor(Date.now() / (24 * 60 * 60 * 1000));
+    let seed = 0;
 
     if (false) {
         setInterval(() => {
@@ -57,6 +57,7 @@
     let mounted = false;
 
     onMount(() => {
+        seed = Math.floor(Date.now() / (24 * 60 * 60 * 1000))
         mounted = true;
     })
 </script>
@@ -88,23 +89,25 @@
     </div>
 
     <main class:mounted>
-        {#each sort(seed, games.filter(game => selectedCategories.length == 0 || selectedCategories.every(c => (game.categories || []).includes(c)))) as game}
-            {#key game.name}    
-                {@const yourGame = game.name == "yourgame"}
-                <div class="game" class:yourgame={yourGame}>
-                    <a href={yourGame ? `https://${game.domain}` : `/g/${game.name}`}>
-                        {#if yourGame}
-                            <div class="fakeimg">
-                                <h3 class="yourgame" style="text-align:center">Your game here!</h3>
-                            </div>
-                        {:else}
-                            <img src={`/${game.teaser}`} alt={game.name}/>
-                            <h3 class="domain">{game.name}</h3>
-                        {/if}
-                    </a>
-                </div>
-            {/key}
-        {/each}
+        {#key seed}
+            {#each sort(seed, games.filter(game => selectedCategories.length == 0 || selectedCategories.every(c => (game.categories || []).includes(c)))) as game}
+                {#key game.name}    
+                    {@const yourGame = game.name == "yourgame"}
+                    <div class="game" class:yourgame={yourGame}>
+                        <a href={yourGame ? `https://${game.domain}` : `/g/${game.name}`}>
+                            {#if yourGame}
+                                <div class="fakeimg">
+                                    <h3 class="yourgame" style="text-align:center">Your game here!</h3>
+                                </div>
+                            {:else}
+                                <img src={`/${game.teaser}`} alt={game.name}/>
+                                <h3 class="domain">{game.name}</h3>
+                            {/if}
+                        </a>
+                    </div>
+                {/key}
+            {/each}
+        {/key}
     </main>
 </div>
 
