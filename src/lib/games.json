@@ -117,5 +117,16 @@
     ],
     "developer": "Yp3d",
     "teaser": "tanks3d_teaser.webp"
-  }
+  },
+  {
+    "name": "Voxmaxa",
+    "domain": "voxmaxa.com",
+    "description": "Voxmaxa is a multiplayer FPS combat game in a block world. Attack enemy players with a wide array of weapons or build a fort for protection.",
+    "categories": [
+      "3D",
+      "Shooting"
+    ],
+    "developer": "Softbear",
+    "teaser": "voxmaxa_teaser.webp"
+  },
 ]
