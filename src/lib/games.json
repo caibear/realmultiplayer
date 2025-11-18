@@ -128,5 +128,16 @@
     ],
     "developer": "Softbear",
     "teaser": "voxmaxa_teaser.webp"
+  },
+  {
+    "name": "Voxorp",
+    "domain": "voxorp.com",
+    "description": "Mine resources, build a base, upgrade your ship and destroy other players!",
+    "categories": [
+      "2D",
+      "Action"
+    ],
+    "developer": "Stan Flint",
+    "teaser": "voxorp_teaser.webp"
   }
 ]
